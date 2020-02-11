@@ -5,9 +5,11 @@ import java.util.Random;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -38,7 +40,13 @@ public class MergeOperators {
                 emitter.onComplete();
                 System.out.println(Thread.currentThread().getName());
             }
-        }).subscribeOn(Schedulers.newThread());
+        }).flatMap(new Function<String, ObservableSource<String>>() {
+            @Override
+            public ObservableSource<String> apply(String s) throws Exception {
+                return null;
+            }
+        }).takeLast(2)
+        .subscribeOn(Schedulers.newThread());
 
 
         Observable.merge(observable1, observable2)

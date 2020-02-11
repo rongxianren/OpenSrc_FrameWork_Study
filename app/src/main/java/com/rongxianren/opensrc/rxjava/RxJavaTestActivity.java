@@ -16,6 +16,12 @@ import com.rongxianren.opensrc.rxjava.subscribeFlow.MyObservableOSubscribe;
 import com.rongxianren.opensrc.rxjava.subscribeFlow.MyObserver;
 import com.rongxianren.opensrc.rxjava.threadswitch.ThreadSwitch;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+
 public class RxJavaTestActivity extends AppCompatActivity {
 
 
@@ -24,6 +30,7 @@ public class RxJavaTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rxjava_activity_main);
         ////hahha
+        HashMap hashMap = new HashMap();
     }
 
     public void mergeTest(View view) {

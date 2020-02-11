@@ -22,7 +22,13 @@ public class MapFlatmap {
             public ObservableSource<String> apply(String o) throws Exception {
                 return Observable.just(o);
             }
-        }).subscribe(
+        }).map(new Function<String, String>() {
+                    @Override
+                    public String apply(String s) throws Exception {
+                        return null;
+                    }
+                }
+        ).subscribe(
                 new Consumer<String>() {
                     @Override
                     public void accept(String s) throws Exception {
